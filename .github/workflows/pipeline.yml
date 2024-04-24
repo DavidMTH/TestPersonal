@@ -15,7 +15,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t perverapp .
-          docker tag my-app:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/my-app:latest
+          docker tag perverapp:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/my-app:latest
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
