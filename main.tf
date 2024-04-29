@@ -128,3 +128,15 @@ resource "aws_route_table_association" "private_route_table_association_2" {
   subnet_id      = aws_subnet.my_private_subnet_2.id
   route_table_id = aws_route_table.private_route_table.id
 }
+
+# EC2 Instance
+resource "aws_instance" "personalverwaltung" {
+  ami           = "ami-0c94855ba95c71c99" # Hier die AMI-ID deiner gewünschten Instanz einfügen
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.my_public_subnet_1.id
+  key_name      = "TestPersonal.pem" # Hier den Namen deines Schlüsselpaares einfügen
+
+  tags = {
+    Name = "Personalverwaltung"
+  }
+}
